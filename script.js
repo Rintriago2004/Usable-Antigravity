@@ -41,4 +41,50 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Modals Logic
+    const modals = {
+        'modal-legal': document.getElementById('modal-legal'),
+        'modal-terms': document.getElementById('modal-terms'),
+        'modal-cookies': document.getElementById('modal-cookies')
+    };
+
+    document.querySelectorAll('[data-open-modal]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalId = trigger.getAttribute('data-open-modal');
+            if (modals[modalId]) {
+                modals[modalId].showModal();
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.getAttribute('data-close');
+            if (modals[modalId]) {
+                modals[modalId].close();
+                document.body.style.overflow = '';
+            }
+        });
+    });
+    
+    // Close on backdrop click
+    Object.values(modals).forEach(modal => {
+        if(modal) {
+            modal.addEventListener('click', (e) => {
+                const dialogDimensions = modal.getBoundingClientRect()
+                if (
+                    e.clientX < dialogDimensions.left ||
+                    e.clientX > dialogDimensions.right ||
+                    e.clientY < dialogDimensions.top ||
+                    e.clientY > dialogDimensions.bottom
+                ) {
+                    modal.close();
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    });
 });
