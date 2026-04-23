@@ -377,7 +377,7 @@ a:hover, a:focus {
 }
 
 .highlight-text {
-  color: var(--primary);
+  color: var(--accent-1);
 }
 
 .hero-subtitle {
