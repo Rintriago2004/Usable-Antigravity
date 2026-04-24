@@ -590,7 +590,7 @@ a:hover, a:focus {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.disability-card.unlocked:hover {
+.disability-card.available:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   border-color: var(--primary);
@@ -613,7 +613,7 @@ a:hover, a:focus {
   border-radius: var(--radius-pill);
 }
 
-.disability-card.unlocked .disability-status {
+.disability-card.available .disability-status {
   background: var(--success);
   color: white;
 }
