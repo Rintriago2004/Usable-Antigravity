@@ -934,3 +934,46 @@ a:hover, a:focus {
   color: #fff;
   border-color: var(--primary);
 }
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: var(--surface-1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  z-index: 1000;
+  transition: bottom 0.5s ease-in-out;
+  border-top: 1px solid var(--border-color);
+}
+.cookie-banner.show {
+  bottom: 0;
+}
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.cookie-content p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+.cookie-content a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.cookie-actions {
+  display: flex;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .cookie-content {
+    flex-direction: row;
+  }
+}
